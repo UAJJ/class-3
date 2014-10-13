@@ -1,0 +1,22 @@
+.makeshift-nav {
+	height: 100px;
+	border-bottom: 2px dotted black;
+	background-color: rgba(0,0,0, .3);
+	padding: 0;
+}
+
+.makeshift-nav div {
+	height: 100px;
+	margin: 0;
+	vertical-align: middle;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 46px;
+	font-weight: bold;
+	font-family: monospace;
+}
+
+.animal-image {
+	width: 300px;
+	margin: 30px;
+}

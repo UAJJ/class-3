@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>The Paragraphs That Escaped The Div Jail</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+	<script>
+	$(document).ready(function() {
+
+		$('.paragraph-1L').click(function() {
+			$(this).fadeOut(500, function() {
+				$(this).fadeIn(500);
+				$(this).prependTo('.paragraph-1R');
+				$('.paragraph-2L').click(function() {
+					$(this).fadeOut(500, function() {
+						$(this).fadeIn(500);
+						$(this).prependTo('.paragraph-2R');
+						window.alert('The magic of Javascript has set the paragraphs free from Div Jail!');
+					}); /* end of $(this).fadeOut(500, function() {..}) on line 17 */
+				}); /* end of $('.paragraph-2L').click(...) on line 16 */
+			}); /* end of $(this).fadeOut(500, function(){...}) on line 13 */
+		}); /* end of $('.paragraph-1L').click(...) on line 12 */
+
+		/**
+		 * Once the user clicks on '.paragraph-1L'...
+		 * 		then fadeOut what they clicked...
+		 * 			 then prepend it to '.paragraph-1R'
+		 * 			 	  then once the user clicks on '.paragraph-2L'....
+		 *        			   ...
+		 * The function that line 30 is indicative of
+		 * (the function that begins on line 16) should
+		 * be outside of the closing curly brackets for
+		 * the function that begins on line 12. Right now,
+		 * because $('.paragraph-2L').click(...) is inside of
+		 * $('.paragraph-1L').click(...), it makes some weird
+		 * depenency issues arise. The ameloriate this challenge,
+		 * let's take the function that begins on line 16
+		 * and place it outside and make it completely independant
+		 * of the first function.
+		 *
+		 * Here is an example:
+		 */
+
+		$('.paragraph-1L').click(function() {
+			$(this).fadeOut(500, function() {
+				$(this).prependTo('.paragraph-1R');
+				$(this).fadeIn(500);
+
+				if ($('.paragraph-1R').text() != '' && $('.paragraph-2R').text() != '') {
+					window.alert('The magic of Javascript has set the paragraphs free from Div Jail!');
+				}
+			});
+		});
+
+		$('.paragraph-2L').click(function() {
+			$(this).fadeOut(500, function() {
+				$(this).prependTo('.paragraph-2R');
+				$(this).fadeIn(500);
+
+				if ($('.paragraph-1R').text() != '' && $('.paragraph-2R').text() != '') {
+					window.alert('The magic of Javascript has set the paragraphs free from Div Jail!');
+				}
+			})
+		});
+
+		/*
+		If you choose to run this code in the browser, then
+		make sure to comment out either the old code or the new code.
+
+		To easily do this, do this:
+			-highlight the code that you want to comment out
+			-press CTRL+/ (or cmd+/)
+		 */
+	});
+	</script>
+	</head>
+
+	<body>
+    <div class="container">
+      <header>
+        <h1> The Paragraphs That Escaped The Div Jail </h1>
+      </header>
+      <div class="col-sm-6 groupL">
+        <div class="paragraph-1L">
+          <h2> The Paragraphs Were Wrongly Imprisoned </h2>
+          <p> Once upon a time there were two paragraphs. These two paragraphs liked to laugh and have a good time. They especially loved to do magic tricks. But these weren't just any magic tricks. These were tricks performed using Javascript. Yes, Javascript. No slight of the hand or trick of the eye, no sawing lovely ladies in fanciful costumes in half, no doves popping out of hats. One day they took their Javascript magic too far. They made a woman disappear on-click using Javascript. But that wasn't all that disappeared. Next thing you know a man disappears and so does a small parrot. They were wrongly accused of kidnapping, found guilty and sent to a div jail. </p>
+        </div>
+        <div class="paragraph-2L">
+          <h2> The Paragraphs Make A Break For It </h2>
+          <p>Jail was no place for paragraphs. They were used to telling stories, being verbose, and could not tolerate run-on sentences. Within days they were already causing a ruckus with the other inmates. They decided the only solution was to break out, to break free of their div prison. How would they do it? By using their Javascript magic of course! Click on the paragraphs and look at them go! They're making a break for it! Set them free with the magic of Javascript! </p>
+        </div>
+      </div>
+      <div class="col-sm-6 groupR">
+        <div class="paragraph-1R"></div>
+        <div class="paragraph-2R"></div>
+      </div>
+    </div>
+</body>
+</html>

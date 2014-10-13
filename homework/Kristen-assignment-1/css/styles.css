@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@import url(http://fonts.googleapis.com/css?family=Alice);
+@import url(http://fonts.googleapis.com/css?family=Uncial+Antiqua);
+
+header {
+	display: block;
+}
+
+body {
+	background: #000 url("../img/bkg.jpg");
+	background-size: 100%;
+}
+
+header {
+	font: 2.5em 'Uncial Antiqua', cursive;
+	color: #333;
+	text-align: center;
+	margin: 1em 0;
+}
+
+p {
+	text-shadow: 2px 2px 8px #000;
+}
+
+
+/*classes*/
+
+.container {
+	font: 1.2em 'Alice', serif;
+	color: #FFF;
+}
+
+.groupL {
+	width: 100%;
+	height: auto;
+	margin: 0;
+	background: #060503 url("../img/jail.jpg") no-repeat;
+	background-size: 100%;
+}
+
+.groupR {
+	width: 100%;
+	height: auto;
+	margin: 0;
+	background: #070300 url("../img/freedom.jpg") no-repeat;
+	background-size: 100%;
+}
